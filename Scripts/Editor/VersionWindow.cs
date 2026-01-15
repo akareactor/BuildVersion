@@ -4,6 +4,8 @@ using System;
 
 namespace KulibinSpace.BuildVersion {
 
+#if UNITY_EDITOR
+
     public class VersionWindow : EditorWindow {
         private VersionData versionData;
         private VersionSnapshot originalSnapshot;
@@ -239,15 +241,15 @@ namespace KulibinSpace.BuildVersion {
             versionData.buildDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             // Формируем строку версии
             string versionString = versionData.GetVersionString();
-#if UNITY_EDITOR
             // Обновляем PlayerSettings.bundleVersion
             UnityEditor.PlayerSettings.bundleVersion = versionString;
             // Сохраняем изменения в asset
             UnityEditor.EditorUtility.SetDirty(versionData);
             UnityEditor.AssetDatabase.SaveAssets();
-#endif
         }
 
     }
+
+#endif
 
 }

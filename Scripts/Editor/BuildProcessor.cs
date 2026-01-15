@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace KulibinSpace.BuildVersion {
 
+#if UNITY_EDITOR
+
     public class BuildProcessor : IPreprocessBuildWithReport {
         public int callbackOrder => 0;
 
@@ -65,5 +67,7 @@ namespace KulibinSpace.BuildVersion {
             }
         }
     }
+
+#endif
 
 }

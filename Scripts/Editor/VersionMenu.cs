@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace KulibinSpace.BuildVersion {
 
+#if UNITY_EDITOR
+
     public class VersionMenu {
         [MenuItem("Build/Version Manager")]
         public static void ShowVersionManager () {
@@ -29,5 +31,7 @@ namespace KulibinSpace.BuildVersion {
             }
         }
     }
+    
+#endif
 
 }
